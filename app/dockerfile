@@ -1,0 +1,22 @@
+FROM python:3.7-alpine
+
+LABEL wordy.codetest.version="0.0.1-beta"
+
+COPY . /usr/src/app/
+#run mkdir -p /usr/src/app/img
+RUN apk --update add libxml2-dev libxslt-dev libffi-dev gcc musl-dev libgcc openssl-dev curl
+RUN apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev
+
+
+RUN apk  --no-cache --update-cache add py-lxml py-numpy py3-pillow py3-libxml2 make automake gcc g++ subversion python3-dev libxml2-dev libxslt-dev
+
+RUN apk add --update py3-pip
+
+RUN pip install Pillow
+
+RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
+
+EXPOSE 8888
+
+CMD ["python", "/usr/src/app/http_app.py"]
+
