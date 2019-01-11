@@ -1,7 +1,7 @@
 # octopus Labs coding test #
 
 
-Install : 
+Install ( on OSX ) : 
 
 	docker-compose up
 
