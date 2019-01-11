@@ -17,7 +17,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: mypwd
     volumes:
-      - /Users/ristopuukko/octopus/db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./octopus/db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
     
